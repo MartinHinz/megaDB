@@ -1,0 +1,8 @@
+<%= f.association :external_collection %>
+<% unless nested_from=="site" %>
+  <%= f.association :site %>
+<% else %>
+  <%= f.input :site_id, as: :hidden %>
+<% end %>
+<%= f.input :there_id %>
+<%= f.input :url %>

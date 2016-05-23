@@ -6,5 +6,5 @@ class Site < ActiveRecord::Base
   has_many :external_collection_entries
   has_many :external_collection, through: :external_collection_entries
 
-  accepts_nested_attributes_for :external_collection_entries
+  accepts_nested_attributes_for :external_collection_entries, reject_if: :all_blank, allow_destroy: true
 end
