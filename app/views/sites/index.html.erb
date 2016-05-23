@@ -12,17 +12,10 @@
       <tr>
             <th>Name</th>
             <th>Toponym</th>
-            <th>Nuts 3</th>
-            <th>Nuts 2</th>
-            <th>Nuts 1</th>
-            <th>Description</th>
-            <th>Literature</th>
-            <th>La nr</th>
             <th>Lat</th>
             <th>Lng</th>
             <th>Mega type</th>
             <th>Source</th>
-            <th>Comments</th>
             <th></th>
         <th></th>
         <th></th>
@@ -33,17 +26,10 @@
       <%= content_tag_for(:tr, @sites) do |site| %>
             <td><%= site.name %></td>
             <td><%= site.toponym %></td>
-            <td><%= site.nuts_3 %></td>
-            <td><%= site.nuts_2 %></td>
-            <td><%= site.nuts_1 %></td>
-            <td><%= site.description %></td>
-            <td><%= site.literature %></td>
-            <td><%= site.la_nr %></td>
             <td><%= site.lat %></td>
             <td><%= site.lng %></td>
             <td><%= site.mega_type.name unless site.mega_type.blank? || site.mega_type.name.blank? %></td>
             <td><%= site.source.name unless site.source.blank? || site.source.name.blank? %></td>
-            <td><%= site.comments %></td>
             <td><%= link_to 'Show', site %></td>
         <td><%= link_to 'Edit', edit_site_path(site) %></td>
         <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
