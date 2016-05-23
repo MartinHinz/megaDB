@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Mega Db
 ================
 
@@ -46,3 +47,7 @@ Credits
 
 License
 -------
+=======
+# megaDB
+Database for Megalithic Sites
+>>>>>>> 1478cf92f431a6cfd12c71312ba67b3cd4df4287
