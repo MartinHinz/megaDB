@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to external_collections_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_external_collection_path(@external_collection), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show external_collection</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @external_collection.name %></dd>
+
+  <dt>Url:</dt>
+  <dd><%= @external_collection.url %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @external_collection.description %></dd>
+
+</dl>

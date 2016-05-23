@@ -1,0 +1,14 @@
+<%= simple_form_for(@catalogue_entry) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :catalogue %>
+    <%= f.association :site %>
+    <%= f.input :nr %>
+    <%= f.input :page %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module ExternalCollectionsHelper
+end

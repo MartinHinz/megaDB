@@ -26,6 +26,7 @@ class UserDashboard < Administrate::BaseDashboard
     confirmed_at: Field::DateTime,
     confirmation_sent_at: Field::DateTime,
     unconfirmed_email: Field::String,
+    role: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -61,6 +62,7 @@ class UserDashboard < Administrate::BaseDashboard
     :confirmed_at,
     :confirmation_sent_at,
     :unconfirmed_email,
+    :role,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -82,6 +84,7 @@ class UserDashboard < Administrate::BaseDashboard
     :confirmed_at,
     :confirmation_sent_at,
     :unconfirmed_email,
+    :role,
   ].freeze
 
   # Overwrite this method to customize how users are displayed

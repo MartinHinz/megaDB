@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_external_collection_entry_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New External collection entry
+  <% end %>
+  <h1>Listing external_collection_entries</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>External collection</th>
+            <th>Site</th>
+            <th>There</th>
+            <th>Url</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @external_collection_entries) do |external_collection_entry| %>
+            <td><%= external_collection_entry.external_collection %></td>
+            <td><%= external_collection_entry.site %></td>
+            <td><%= external_collection_entry.there_id %></td>
+            <td><%= external_collection_entry.url %></td>
+            <td><%= link_to 'Show', external_collection_entry %></td>
+        <td><%= link_to 'Edit', edit_external_collection_entry_path(external_collection_entry) %></td>
+        <td><%= link_to 'Destroy', external_collection_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

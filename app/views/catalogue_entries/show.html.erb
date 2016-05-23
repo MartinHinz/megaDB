@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Catalogue:</strong>
+  <%= @catalogue_entry.catalogue %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @catalogue_entry.site %>
+</p>
+
+<p>
+  <strong>Nr:</strong>
+  <%= @catalogue_entry.nr %>
+</p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @catalogue_entry.page %>
+</p>
+
+<%= link_to 'Edit', edit_catalogue_entry_path(@catalogue_entry) %> |
+<%= link_to 'Back', catalogue_entries_path %>

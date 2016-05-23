@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Mega Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mega_types.each do |mega_type| %>
+      <tr>
+        <td><%= mega_type.name %></td>
+        <td><%= link_to 'Show', mega_type %></td>
+        <td><%= link_to 'Edit', edit_mega_type_path(mega_type) %></td>
+        <td><%= link_to 'Destroy', mega_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mega type', new_mega_type_path %>

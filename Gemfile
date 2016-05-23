@@ -16,6 +16,8 @@ group :development do
   gem 'spring'
 end
 gem 'administrate'
+gem 'administrate-field-image'
+gem "administrate-field-nested_has_many", "~> 0.0.2"
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
@@ -38,6 +40,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
+  gem 'bootstrap-generators', '~> 3.3.4'
 end
 group :development, :test do
   gem 'factory_girl_rails'
