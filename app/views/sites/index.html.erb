@@ -6,6 +6,20 @@
   <h1>Listing sites</h1>
 </div>
 
+<% active_scopes = [] %>
+<% active_scopes = params.slice(:active_scopes).values.flatten unless params['active_scopes'].blank? %>
+<% Site.available_scopes.each do |scope|%>
+  <%  if params['active_scopes'] && params['active_scopes'].include?(scope) %>
+    <%= link_to scope,
+                sites_path(params: params.merge({'active_scopes' => active_scopes.reject {|v| v==scope}}).reject{|k| k=='page'}),
+                :class => "btn btn-large btn-primary active"  %>
+  <% else%>
+    <%= link_to scope,
+                sites_path(params: params.merge({'active_scopes' => (active_scopes + [scope])}).reject{|k| k=='page'}),
+                :class => "btn btn-large btn-primary"  %>
+  <% end %>
+<% end %>
+
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
@@ -36,4 +50,5 @@
       <% end %>
     </tbody>
   </table>
+<%= paginate @sites %>
 </div>

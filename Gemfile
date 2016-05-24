@@ -24,6 +24,8 @@ gem 'high_voltage'
 gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
+gem 'kaminari'
+
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'

@@ -4,7 +4,15 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.all
+    @sites = if params[:active_scopes]
+      result=Site.where(nil)
+      params[:active_scopes].each do |value|
+        result = result.public_send(value)
+      end
+      result
+    else
+      Site.all
+    end.page(params[:page])
   end
 
   # GET /sites/1
