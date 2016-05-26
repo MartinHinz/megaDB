@@ -4,6 +4,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
+    logger.debug params[:active_scopes]
     @q = if params[:active_scopes]
       result=Site.where(nil)
       params[:active_scopes].each do |value|

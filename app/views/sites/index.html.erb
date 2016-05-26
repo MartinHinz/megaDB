@@ -24,7 +24,9 @@
 
   <%= f.label :name_or_toponym_cont %>
   <%= f.search_field :name_or_toponym_cont %>
-
+ <% params["active_scopes"].each do |active_scope| %>
+    <%= hidden_field_tag '[active_scopes][]', active_scope, :multiple => true %>
+  <% end unless params["active_scopes"].blank? %>
   <%= f.submit %>
 <% end %>
 
