@@ -17,15 +17,6 @@
   <dt>Toponym:</dt>
   <dd><%= @site.toponym %></dd>
 
-  <dt>Nuts 3:</dt>
-  <dd><%= @site.nuts_3 %></dd>
-
-  <dt>Nuts 2:</dt>
-  <dd><%= @site.nuts_2 %></dd>
-
-  <dt>Nuts 1:</dt>
-  <dd><%= @site.nuts_1 %></dd>
-
   <dt>Description:</dt>
   <dd><%= @site.description %></dd>
 
@@ -42,12 +33,28 @@
   <dd><%= @site.lng %></dd>
 
   <dt>Mega type:</dt>
-  <dd><%= @site.mega_type %></dd>
+  <dd><%= @site.mega_type.name %></dd>
 
   <dt>Source:</dt>
-  <dd><%= @site.source %></dd>
+  <dd><%= @site.source.name %></dd>
 
   <dt>Comments:</dt>
   <dd><%= @site.comments %></dd>
 
+</dl>
+
+<h3>Catalogue Entries</h3>
+<dl class="dl-horizontal">
+  <% @site.catalogue_entries.each do |entry|%>
+    <dt><%= entry.catalogue.name %>:</dt>
+    <dd><%= entry.nr %></dd>
+  <%end%>
+</dl>
+
+<h3>External Collection Entries</h3>
+<dl class="dl-horizontal">
+  <% @site.external_collection_entries.each do |entry|%>
+    <dt><%= entry.external_collection.name %>:</dt>
+    <dd><%= link_to entry.url, entry.url %></dd>
+  <%end%>
 </dl>
