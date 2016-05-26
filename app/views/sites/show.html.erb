@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag "http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" %>
+<%= javascript_include_tag "http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js" %>
+
 <div class="page-header">
   <%= link_to sites_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
@@ -9,6 +12,8 @@
   <% end %>
   <h1>Show site</h1>
 </div>
+<div class="container">
+<div class="col-md-6">
 
 <dl class="dl-horizontal">
   <dt>Name:</dt>
@@ -58,3 +63,16 @@
     <dd><%= link_to entry.url, entry.url %></dd>
   <%end%>
 </dl>
+</div>
+<div class="col-md-6"><div id="mapid"></div>
+
+  <script type="text/javascript">
+    var mymap = L.map('mapid').setView([<%= @site.lat %>, <%= @site.lng %>], 13);
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(mymap);
+var marker = L.marker([<%= @site.lat %>, <%= @site.lng %>]).addTo(mymap);
+  </script>
+
+</div>
