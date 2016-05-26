@@ -25,6 +25,7 @@ gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'kaminari'
+gem 'ransack'
 
 group :development do
   gem 'better_errors'

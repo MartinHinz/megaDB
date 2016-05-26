@@ -4,7 +4,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = if params[:active_scopes]
+    @q = if params[:active_scopes]
       result=Site.where(nil)
       params[:active_scopes].each do |value|
         result = result.public_send(value)
@@ -12,7 +12,8 @@ class SitesController < ApplicationController
       result
     else
       Site.all
-    end.page(params[:page])
+    end.ransack(params[:q])
+    @sites = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /sites/1
