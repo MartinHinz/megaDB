@@ -2,6 +2,11 @@
 <%= javascript_include_tag "http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js" %>
 
 <div class="page-header">
+  <%= link_to @site,
+            data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger' do %>
+    <span class="glyphicon glyphicon-remove"></span>
+    Delete
+  <% end %>
   <%= link_to sites_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
@@ -12,6 +17,7 @@
   <% end %>
   <h1><%= @site.name %></h1>
 </div>
+
 <div class="container">
 <div class="col-md-6">
 

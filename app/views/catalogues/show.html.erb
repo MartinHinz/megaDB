@@ -1,14 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @catalogue.name %>
-</p>
+<div class="page-header">
+  <%= link_to @catalogue,
+            data: {:confirm => 'Are you sure?'}, :method => :destroy, class: 'btn btn-danger' do %>
+    <span class="glyphicon glyphicon-remove"></span>
+    Delete
+  <% end %>
+  <%= link_to catalogues_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_catalogue_path(@catalogue), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1><%= @catalogue.name %></h1>
+</div>
 
-<p>
-  <strong>Citation:</strong>
-  <%= @catalogue.citation %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Citation:</dt>
+  <dd><%= @catalogue.citation %></dd>
+</dl>
 
-<%= link_to 'Edit', edit_catalogue_path(@catalogue) %> |
-<%= link_to 'Back', catalogues_path %>
+<h3>Catalogue Entries</h3>
+<dl class="dl-horizontal">
+  <% @catalogue.catalogue_entries.sort_by { |a| a.nr.to_i }.each do |entry|%>
+  <a href="<%=url_for(entry.site)%>">
+    <dt><%= entry.nr %>:</dt>
+    <dd><%= entry.site.name %></dd>
+  <%end%>
+</a>
+</dl>
